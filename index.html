@@ -6,16 +6,22 @@
     <link rel="manifest" href="manifest.json">
     <title>OJT Equipment Directory</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 10px; background: #f0f2f5; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 10px; background: #f0f2f5; }
         .sticky-header { position: sticky; top: 0; background: #f0f2f5; padding: 10px 0; z-index: 100; }
-        input { width: 100%; padding: 15px; border: 2px solid #004a99; border-radius: 12px; font-size: 18px; box-sizing: border-box; box-shadow: 0 2px 4px rgba(0,0,0,0.1); outline: none; }
+        input { width: 100%; padding: 15px; border: 2px solid #004a99; border-radius: 12px; font-size: 18px; box-sizing: border-box; outline: none; }
+        
         table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; margin-top: 10px; }
-        th, td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; vertical-align: middle; }
-        th { background: #004a99; color: white; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+        th, td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; }
+        th { background: #004a99; color: white; font-size: 11px; text-transform: uppercase; }
+        
         .tag-name { font-weight: bold; color: #004a99; display: block; font-size: 16px; }
-        .loc-text { color: #555; font-size: 14px; display: block; margin-top: 4px; }
-        .equipment-img { width: 70px; height: 70px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd; }
-        .hidden { display: none; }
+        .equipment-img { width: 70px; height: 70px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid #ddd; }
+
+        /* FULL SCREEN MODAL STYLES */
+        #photoModal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
+        #fullImage { margin: auto; display: block; max-width: 95%; max-height: 80%; margin-top: 15%; border: 3px solid white; }
+        #caption { margin: auto; display: block; width: 80%; text-align: center; color: #ccc; padding: 10px 0; font-size: 20px; }
+        .close { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -27,8 +33,7 @@
     <table id="dirTable">
         <thead>
             <tr>
-                <th>Equipment Info</th>
-                <th>Location</th>
+                <th>Info & Location</th>
                 <th>Visual</th>
             </tr>
         </thead>
@@ -36,30 +41,21 @@
             <tr>
                 <td>
                     <span class="tag-name">PT-101</span>
-                    <small>Pressure Transmitter</small>
+                    <small>Pressure Transmitter</small><br>
+                    <span style="color: #666; font-size: 13px;">📍 Control Room - Rack B</span>
                 </td>
                 <td>
-                    <span class="loc-text">📍 Control Room - Rack B</span>
-                </td>
-                <td>
-                    <img src="images/PT101.jpg" class="equipment-img" alt="PT-101">
+                    <img src="images/PT101.jpg" class="equipment-img" onclick="openFull(this.src, 'PT-101: Pressure Transmitter')">
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <span class="tag-name">HCV-202</span>
-                    <small>Hand Control Valve</small>
-                </td>
-                <td>
-                    <span class="loc-text">📍 Tank Farm - Area 4</span>
-                </td>
-                <td>
-                    <img src="images/HCV202.jpg" class="equipment-img" alt="HCV-202">
-                </td>
-            </tr>
-
-        </tbody>
+            </tbody>
     </table>
+
+    <div id="photoModal">
+        <span class="close" onclick="closeFull()">&times;</span>
+        <img id="fullImage">
+        <div id="caption"></div>
+    </div>
 
     <script>
         function doSearch() {
@@ -69,6 +65,16 @@
                 let text = rows[i].textContent || rows[i].innerText;
                 rows[i].style.display = text.toUpperCase().indexOf(filter) > -1 ? "" : "none";
             }
+        }
+
+        function openFull(src, title) {
+            document.getElementById("photoModal").style.display = "block";
+            document.getElementById("fullImage").src = src;
+            document.getElementById("caption").innerHTML = title;
+        }
+
+        function closeFull() {
+            document.getElementById("photoModal").style.display = "none";
         }
     </script>
 </body>
