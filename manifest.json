@@ -1,0 +1,15 @@
+{
+  "name": "Equipment Legend Directory",
+  "short_name": "Legends",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#004a99",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/1087/1087927.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
