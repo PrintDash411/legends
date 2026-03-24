@@ -6,35 +6,59 @@
     <link rel="manifest" href="manifest.json">
     <title>OJT Equipment Directory</title>
     <style>
-        body { font-family: Segoe UI, sans-serif; margin: 0; padding: 10px; background: #eceff1; }
-        .sticky-header { position: sticky; top: 0; background: #eceff1; padding: 10px 0; z-index: 10; }
-        input { width: 100%; padding: 15px; border: 2px solid #004a99; border-radius: 10px; font-size: 18px; box-sizing: border-box; outline: none; }
-        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        th, td { padding: 15px; border-bottom: 1px solid #ddd; text-align: left; }
-        th { background: #004a99; color: white; text-transform: uppercase; font-size: 12px; }
-        .equipment-img { width: 60px; height: 60px; object-fit: cover; border-radius: 5px; cursor: pointer; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 10px; background: #f0f2f5; }
+        .sticky-header { position: sticky; top: 0; background: #f0f2f5; padding: 10px 0; z-index: 100; }
+        input { width: 100%; padding: 15px; border: 2px solid #004a99; border-radius: 12px; font-size: 18px; box-sizing: border-box; box-shadow: 0 2px 4px rgba(0,0,0,0.1); outline: none; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; margin-top: 10px; }
+        th, td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; vertical-align: middle; }
+        th { background: #004a99; color: white; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+        .tag-name { font-weight: bold; color: #004a99; display: block; font-size: 16px; }
+        .loc-text { color: #555; font-size: 14px; display: block; margin-top: 4px; }
+        .equipment-img { width: 70px; height: 70px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd; }
         .hidden { display: none; }
     </style>
 </head>
 <body>
 
     <div class="sticky-header">
-        <input type="text" id="search" placeholder="Search Tag or Equipment..." onkeyup="doSearch()">
+        <input type="text" id="search" placeholder="Search Tag, Name, or Location..." onkeyup="doSearch()">
     </div>
 
     <table id="dirTable">
         <thead>
             <tr>
-                <th>Details</th>
-                <th>Image</th>
+                <th>Equipment Info</th>
+                <th>Location</th>
+                <th>Visual</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><strong>PT-101</strong><br>Pressure Transmitter</td>
-                <td><img src="images/.gitkeep" class="equipment-img" alt="No Image"></td>
+                <td>
+                    <span class="tag-name">PT-101</span>
+                    <small>Pressure Transmitter</small>
+                </td>
+                <td>
+                    <span class="loc-text">📍 Control Room - Rack B</span>
+                </td>
+                <td>
+                    <img src="images/PT101.jpg" class="equipment-img" alt="PT-101">
+                </td>
             </tr>
-            </tbody>
+            <tr>
+                <td>
+                    <span class="tag-name">HCV-202</span>
+                    <small>Hand Control Valve</small>
+                </td>
+                <td>
+                    <span class="loc-text">📍 Tank Farm - Area 4</span>
+                </td>
+                <td>
+                    <img src="images/HCV202.jpg" class="equipment-img" alt="HCV-202">
+                </td>
+            </tr>
+
+        </tbody>
     </table>
 
     <script>
