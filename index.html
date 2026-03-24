@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <title>OJT Equipment Directory</title>
+    <style>
+        body { font-family: Segoe UI, sans-serif; margin: 0; padding: 10px; background: #eceff1; }
+        .sticky-header { position: sticky; top: 0; background: #eceff1; padding: 10px 0; z-index: 10; }
+        input { width: 100%; padding: 15px; border: 2px solid #004a99; border-radius: 10px; font-size: 18px; box-sizing: border-box; outline: none; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { padding: 15px; border-bottom: 1px solid #ddd; text-align: left; }
+        th { background: #004a99; color: white; text-transform: uppercase; font-size: 12px; }
+        .equipment-img { width: 60px; height: 60px; object-fit: cover; border-radius: 5px; cursor: pointer; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="sticky-header">
+        <input type="text" id="search" placeholder="Search Tag or Equipment..." onkeyup="doSearch()">
+    </div>
+
+    <table id="dirTable">
+        <thead>
+            <tr>
+                <th>Details</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>PT-101</strong><br>Pressure Transmitter</td>
+                <td><img src="images/.gitkeep" class="equipment-img" alt="No Image"></td>
+            </tr>
+            </tbody>
+    </table>
+
+    <script>
+        function doSearch() {
+            let filter = document.getElementById('search').value.toUpperCase();
+            let rows = document.getElementById('dirTable').getElementsByTagName('tr');
+            for (let i = 1; i < rows.length; i++) {
+                let text = rows[i].textContent || rows[i].innerText;
+                rows[i].style.display = text.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+            }
+        }
+    </script>
+</body>
+</html>
