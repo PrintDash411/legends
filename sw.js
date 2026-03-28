@@ -60,6 +60,34 @@ const ASSETS = [
    './images/6LeadsTerminal.png'
    './images/StrandedWire.png'
    './images/Cable600V.png'
+
+  './set2/page1_row1.png'
+  './set2/Drill.png'
+  './set2/HallowWallAnchor.png'
+  './set2/SetOfDrillBit.png'
+  './set2/BubbleLevel.png'
+  './set2/Hammer.png'
+
+  './set2/page3_row1.png'
+  './set2/CrosscutSaw.png'
+  './set2/Fittings.png'
+  './set2/WD-40.png'
+  './set2/PowerSupply.png'
+  './set2/Calculator.png'
+
+  './set2/page5_row1.png'
+  './set2/SpareWires.png'
+  './set2/ImmersionHeater.png'
+  './set2/RTDSensor.png'
+  './set2/VernierCaliper.png'
+  './set2/ExtensionWire.png'
+  './set2/IPConverter.png'
+  './set2/Extension.png'
+  './set2/RotorkCMR.pn'
+  './set2/PowerSupply(2).png'
+  './set2/HoneywellTransmitter.png'
+  './set2/TBMSeriesBI-MetalThermometer.png'
+  
 ];
 
 self.addEventListener('install', (e) => {
