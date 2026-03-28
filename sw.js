@@ -83,10 +83,20 @@ const ASSETS = [
   './set2/ExtensionWire.png'
   './set2/IPConverter.png'
   './set2/Extension.png'
-  './set2/RotorkCMR.pn'
+  './set2/RotorkCMR.png'
   './set2/PowerSupply(2).png'
   './set2/HoneywellTransmitter.png'
   './set2/TBMSeriesBI-MetalThermometer.png'
+
+   './set2/Cable.jpg'
+   './set2/Terminal Lug Crimper.jpg'
+   './set2/Start Stop Switch (Cable Dressing Test).jpg'
+   './set2/Digital Multimeter.jpg'
+   './set2/Copper Tube.jpg'
+   './set2/Terminal Lugs 7pcs.jpg'
+   './set2/Start Stop Switch (Cable Dressing Test Cable).jpg'
+   './set2/WinsPEAK VC60B INSULATION TESTER.jpg'
+   './set2/Motor Control Test.jpg'
   
 ];
 
